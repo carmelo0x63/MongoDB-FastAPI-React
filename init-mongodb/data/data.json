@@ -1,0 +1,7 @@
+[
+  {"title": "Dune", "year": 1984, "director": "David Lynch"},
+  {"title": "Avatar", "year": 9999, "director": "James Cameron"},
+  {"title": "The Hobbit", "year": 2012, "director": "Peter Jackson"},
+  {"title": "Arrival", "year": 2016, "director": "Denis Villeneuve"},
+  {"title": "B Movie", "year": 1234, "director": "Unknown Person"}
+]

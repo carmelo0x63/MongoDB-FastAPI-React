@@ -1,0 +1,11 @@
+FROM python:3.11-slim
+MAINTAINER "carmelo.califano@gmail.com"
+
+WORKDIR /srv
+COPY requirements.txt /srv/
+RUN pip3 install -r requirements.txt
+#COPY main.py models.py routes.py .env /srv/
+COPY main.py .env /srv/
+
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0"]
+

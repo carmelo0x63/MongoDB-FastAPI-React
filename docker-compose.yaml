@@ -1,0 +1,27 @@
+services:
+  MongoDB:
+    container_name: mongo_db
+    image: mongo:6.0.5
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=dbadmin
+#      - MONGO_INITDB_ROOT_PASSWORD=dbapw123
+      - MONGO_INITDB_ROOT_PASSWORD_FILE=/run/secrets/mongo-root-pw
+    ports:
+      - "27017:27017"
+    networks:
+      - backend
+    volumes:
+      - db_data:/data/db
+      - ./init-mongodb:/docker-entrypoint-initdb.d:ro
+      - ./init-mongodb/data:/tmp/data:ro
+      - ./init-mongodb/secrets:/run/secrets:ro
+
+networks:
+#  frontend:
+  backend:
+
+volumes:
+  db_data:
+#    external: true  # To be used if the volume is created manually
+    name: mongodb_data
+
